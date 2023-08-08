@@ -1,5 +1,5 @@
 ## spcplayer
-### An [.SPC](www.zophar.net/music/spc.html) music player
+### An [.SPC](http://www.zophar.net/music/spc.html) music player
 
 #### Compilation
 
