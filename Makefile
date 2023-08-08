@@ -16,7 +16,7 @@ sneese/SPC700.o: sneese/SPC700.asm sneese/spc.ni sneese/regs.ni \
 
 $(ZLIB):
 	cd zlib && CFLAGS=-m32 ./configure --static
-	make -C zlib
+	make -C zlib libz.a
 
 clean:
 	rm -f *.o */*.o spcplayer *~ */*~
