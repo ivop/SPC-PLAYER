@@ -22,3 +22,9 @@ with your preferred back-end. Tested with osspd-alsa.
 ./spcplayer filename.spc
 ```
 
+#### Authors
+
+spcplayer Copyright (C) Stephen Melvin Jr.  
+spc decoding code from libopenspc Copyright (C) by Brad Martin.  
+spc emulation Copyright (C) by Savoury SnaX, Santeri Saarimaa, and Charles Bilyue.  
+See COPYING for license details.
