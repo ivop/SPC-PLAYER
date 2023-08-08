@@ -1,7 +1,7 @@
 NASM ?= nasm
 CC ?= gcc
 AFLAGS = -f elf32
-CFLAGS = -W -Wall -pedantic -O2 -m32 -ISNEeSe -Isrc
+CFLAGS = -W -Wall -pedantic -O2 -m32 -ISNEeSe -Isrc -no-pie
 SNESEOBJS = SNEeSe/SPC700.o
 SRC = src/dsp.c src/main.c src/spcplayerlinux.c SNEeSe/SPCimpl.c
 
