@@ -21,5 +21,5 @@ $(ZLIB):
 	make -C zlib distclean
 
 clean:
-	rm -f *.o */*.o spcplayer *~ */*~
+	rm -f *.o */*.o spcplayer *~ */*~ libz.a
 	make -C zlib distclean
