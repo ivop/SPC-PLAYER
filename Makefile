@@ -14,4 +14,4 @@ SNEeSe/SPC700.o: SNEeSe/SPC700.asm SNEeSe/spc.ni SNEeSe/regs.ni \
 	$(NASM) $(AFLAGS) -iSNEeSe/ -o SNEeSe/SPC700.o SNEeSe/SPC700.asm
 
 clean:
-	rm -f *.o $(SPC_IMPL)/*.o libopenspc.a soap spcplayer
+	rm -f *.o */*.o spcplayer *~ */*~

@@ -2,19 +2,23 @@
 ### An [.SPC](www.zophar.net/music/spc.html) music player
 
 #### Compilation
-**Linux**
 
-    make linux
+The SPC emulator is in x86 32-bit assembly, so the result is a 32-bit
+application.
+Make sure you have the 32-bit zlib devel ipackage installed before attempting
+to build.
 
-**OS X**
 
-    make osx
+```
+make
+```
 
-The linux version uses OSS for sound output. It was last tested to run on Ubuntu 9.10. spcplayer may not always be able to successfully open /dev/dsp. If that occurs, verify you have write permissions on /dev/dsp and try again.
+Uses OSS for sound output. On modern systems, use a 32-bit aoss or osspd
+with your preferred back-end. Tested with osspd-alsa.
 
-Make sure you have zlib devel installed before attempting to build.
-
-**Usage on both systems**
+#### Usage
     
-    ./spcplayer filename.spc
+```
+./spcplayer filename.spc
+```
 
