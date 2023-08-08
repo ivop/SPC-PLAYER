@@ -1,17 +1,23 @@
 NASM ?= nasm
 CC ?= gcc
-AFLAGS = -f elf32
-CFLAGS = -W -Wall -pedantic -O2 -m32 -ISNEeSe -Isrc -no-pie
-SNESEOBJS = SNEeSe/SPC700.o
-SRC = src/dsp.c src/main.c src/spcplayerlinux.c SNEeSe/SPCimpl.c
+AFLAGS = -f elf32 -isneese
+CFLAGS = -W -Wall -pedantic -O2 -m32 -Isneese -Isrc -no-pie
+SNEESEOBJS = sneese/SPC700.o
+SRC = src/dsp.c src/main.c src/spcplayerlinux.c sneese/SPCimpl.c
+ZLIB = zlib/libz.a
 
-spcplayer: $(SRC) $(SNESEOBJS)
-	gcc $(CFLAGS) -o $@ $(SRC) $(SNESEOBJS) -lz
+spcplayer: $(SRC) $(SNEESEOBJS) $(ZLIB) Makefile
+	gcc $(CFLAGS) -o $@ $(SRC) $(SNEESEOBJS) $(ZLIB)
 
-SNEeSe/SPC700.o: SNEeSe/SPC700.asm SNEeSe/spc.ni SNEeSe/regs.ni \
- SNEeSe/spcaddr.ni SNEeSe/spcmacro.ni SNEeSe/spcops.ni SNEeSe/misc.ni \
+sneese/SPC700.o: sneese/SPC700.asm sneese/spc.ni sneese/regs.ni \
+ sneese/spcaddr.ni sneese/spcmacro.ni sneese/spcops.ni sneese/misc.ni \
  Makefile
-	$(NASM) $(AFLAGS) -iSNEeSe/ -o SNEeSe/SPC700.o SNEeSe/SPC700.asm
+	$(NASM) $(AFLAGS) -o sneese/SPC700.o sneese/SPC700.asm
+
+$(ZLIB):
+	cd zlib && CFLAGS=-m32 ./configure --static
+	make -C zlib
 
 clean:
 	rm -f *.o */*.o spcplayer *~ */*~
+	make -C zlib distclean
