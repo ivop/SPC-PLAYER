@@ -24,7 +24,6 @@ with your preferred back-end. Tested with osspd-alsa.
 
 #### Authors
 
-spcplayer Copyright (C) Stephen Melvin Jr.  
-spc decoding code from libopenspc Copyright (C) by Brad Martin.  
-spc emulation Copyright (C) by Savoury SnaX, Santeri Saarimaa, and Charles Bilyue.  
-See COPYING for license details.
+dsp emulation and decoding Copyright (C) 2003 by Brad Martin. Licensed under the GPL-2 license. See COPYING for details.  
+spc emulation Copyright (C) 2002, 2003 by Charles Bilyue. Licensed under The Clarified Artistic License. See LICENSE for details.  
+spcplayer Copyright (C) 2003 by Stephen Melvin Jr.  
