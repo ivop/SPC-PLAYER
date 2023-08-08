@@ -27,3 +27,4 @@ with your preferred back-end. Tested with osspd-alsa.
 dsp emulation and decoding Copyright (C) 2003 by Brad Martin. Licensed under the GPL-2 license. See COPYING for details.  
 spc emulation Copyright (C) 2002, 2003 by Charles Bilyue. Licensed under The Clarified Artistic License. See LICENSE for details.  
 spcplayer Copyright (C) 2003 by Stephen Melvin Jr.  
+zlib Copyright (C) 1995-2022 by Jean-loup Gailly and Mark Adler. See LICENSE for details.  
