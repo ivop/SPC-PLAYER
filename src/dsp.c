@@ -27,6 +27,7 @@ specific implementations and prototypes are subject to change.
 
  ************************************************************************/
 
+#if 0
 #undef DEBUG
 #undef DBG_KEY
 #undef DBG_ENV
@@ -34,6 +35,7 @@ specific implementations and prototypes are subject to change.
 #undef DBG_BRR
 #undef DBG_ECHO
 #undef DBG_INTRP
+#endif
 
 #undef NO_PMOD
 #undef NO_ECHO
