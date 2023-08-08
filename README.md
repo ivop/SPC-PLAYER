@@ -1,11 +1,15 @@
 ## spcplayer
 ### An [.SPC](http://www.zophar.net/music/spc.html) music player
 
+### Static Linux 32-bit binary
+
+Included is a statically linked 32-bit Linux binary.
+
 #### Compilation
 
 The SPC emulator is in x86 32-bit assembly, so the result is a 32-bit
 application. You need to have a 32-bit libc installed before trying to
-build. zlib is included.  
+attempt to build yourself. zlib is included.  
 
 ```
 make
