@@ -1,7 +1,7 @@
 ## spcplayer
 ### An [.SPC](http://www.zophar.net/music/spc.html) music player
 
-### Static Linux 32-bit binary
+#### Static Linux 32-bit binary
 
 Included is a statically linked 32-bit Linux binary.
 
