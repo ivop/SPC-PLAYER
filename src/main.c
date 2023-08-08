@@ -43,18 +43,18 @@ static int mix_left;
 static int Load_SPC(void *buf,size_t size)
 {
 	const char ident[]="SNES-SPC700 Sound File Data";
-	struct SPC_FILE
+	struct __attribute__ ((packed)) SPC_FILE
 	{
-		char ident[37] __attribute__ ((packed));
-		unsigned short PC __attribute__ ((packed));
-		unsigned char A __attribute__ ((packed)),
-		              X __attribute__ ((packed)),
-		              Y __attribute__ ((packed)),
-		              P __attribute__ ((packed)),
-	     	              SP __attribute__ ((packed));
-		char junk[212] __attribute__ ((packed)),
-		     RAM[65536] __attribute__ ((packed)),
-		     DSP[128] __attribute__ ((packed));
+		char ident[37];
+		unsigned short PC;
+		unsigned char A,
+		              X,
+		              Y,
+		              P,
+		              SP;
+		char junk[212],
+		     RAM[65536],
+		     DSP[128];
 	} *spc_file;
 	if(size<sizeof(spc_file))
 		return 1;
@@ -72,23 +72,23 @@ static int Load_ZST(void *buf,size_t size)
 {
 	int p;
 	const char ident[]="ZSNES Save State File";
-	struct ZST_FILE
+	struct __attribute__ ((packed)) ZST_FILE
 	{
-		char ident[26] __attribute__ ((packed)),
-		     junk[199673] __attribute__ ((packed)),
-		     RAM[65536] __attribute__ ((packed)),
-		     junk2[16] __attribute__ ((packed));
-		long PC __attribute__ ((packed)),
-		     A __attribute__ ((packed)),
-		     X __attribute__ ((packed)),
-		     Y __attribute__ ((packed)),
-		     P __attribute__ ((packed)),
-		     P2 __attribute__ ((packed)),
-		     SP __attribute__ ((packed));
-		char junk3[420] __attribute__ ((packed)),
-		     v_on[8] __attribute__ ((packed)),
-		     junk4[916] __attribute__ ((packed)),
-		     DSP[256] __attribute__ ((packed));
+		char ident[26],
+		     junk[199673],
+		     RAM[65536],
+		     junk2[16];
+		long PC,
+		     A,
+		     X,
+		     Y,
+		     P,
+		     P2,
+		     SP;
+		char junk3[420],
+		     v_on[8],
+		     junk4[916],
+		     DSP[256];
 	} *zst_file;
 	
 	if(size<sizeof(struct ZST_FILE))
@@ -127,15 +127,15 @@ static int GZ_Read(void *buf,size_t size,z_streamp zsp)
 
 static z_streamp GZ_Open(unsigned char *buf,size_t size)
 {
-	struct gz_header
+	struct __attribute__ ((packed)) gz_header
 	{
-		unsigned char id1 __attribute__ ((packed)),
-		              id2 __attribute__ ((packed)),
-		              cm __attribute__ ((packed)),
-		              flg __attribute__ ((packed));
-		unsigned long mtime __attribute__ ((packed));
-		unsigned char xfl __attribute__ ((packed)),
-		              os __attribute__ ((packed));
+		unsigned char id1,
+		              id2,
+		              cm,
+		              flg;
+		unsigned long mtime;
+		unsigned char xfl,
+		              os;
 	} *gzh=(struct gz_header *)buf;
 	z_streamp zsp;
 	size_t skip=sizeof(struct gz_header);
@@ -177,29 +177,29 @@ static void GZ_Close(z_streamp zsp)
 
 static int Load_S9X(void *buf,size_t size)
 {
-	struct S9X_APU_BLOCK
+	struct __attribute__ ((packed)) S9X_APU_BLOCK
 	{
-		unsigned long Cycles __attribute__ ((packed));
-		unsigned char ShowROM __attribute__ ((packed)),
-		              Flags __attribute__ ((packed)),
-		              KeyedChannels __attribute__ ((packed)),
-		              OutPorts[4] __attribute__ ((packed)),
-		              DSP[0x80] __attribute__ ((packed)),
-		              ExtraRAM[64] __attribute__ ((packed));
-		unsigned short Timer[3] __attribute__ ((packed)),
-		               TimerTarget[3] __attribute__ ((packed));
-		unsigned char TimerEnabled[3] __attribute__ ((packed)),
-		              TimerValueWritten[3] __attribute__ ((packed));
+		unsigned long Cycles;
+		unsigned char ShowROM,
+		              Flags,
+		              KeyedChannels,
+		              OutPorts[4],
+		              DSP[0x80],
+		              ExtraRAM[64];
+		unsigned short Timer[3],
+		               TimerTarget[3];
+		unsigned char TimerEnabled[3],
+		              TimerValueWritten[3];
 	};
-	struct S9X_APUREGS_BLOCK
+	struct __attribute__ ((packed)) S9X_APUREGS_BLOCK
 	{
-		unsigned char P __attribute__ ((packed)),
-		              A __attribute__ ((packed)),
-		              Y __attribute__ ((packed)),
-		              X __attribute__ ((packed)),
-		              S __attribute__ ((packed)),
-		              PCh __attribute__ ((packed)),
-		              PCl __attribute__ ((packed));
+		unsigned char P,
+		              A,
+		              Y,
+		              X,
+		              S,
+		              PCh,
+		              PCl;
 	} SnapAPURegisters;
 	const char ident[]="#!snes9";
 	const int bufsize=65536;
