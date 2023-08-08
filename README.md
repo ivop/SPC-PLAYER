@@ -4,10 +4,8 @@
 #### Compilation
 
 The SPC emulator is in x86 32-bit assembly, so the result is a 32-bit
-application.
-Make sure you have the 32-bit zlib devel ipackage installed before attempting
-to build.
-
+application. You need to have a 32-bit libc installed before trying to
+build. zlib is included.  
 
 ```
 make
