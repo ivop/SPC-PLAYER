@@ -15,7 +15,7 @@
 int main(int argc, char *argv[]) {
     int optionoffset = 0, audio_fd, channels = 2, rformat, rchannels, format =
         AFMT_S16_LE, speed = 32000, fd;
-    char audio_device[] = "/dev/dsp";
+    char *audio_device = "/dev/dsp";
     char ver[] = "0.2";
     char c;
     void *ptr, *buf;
@@ -30,15 +30,15 @@ int main(int argc, char *argv[]) {
     }
 
     if ((argc > 2)) {
-        strcpy(audio_device, argv[1]);
+        audio_device = strdup(argv[1]);
         optionoffset++;
     }
 
     if ((audio_fd = open(audio_device, O_WRONLY, 0)) == -1) {
-        fprintf(stderr, "[-] Could not open, %s.\n", audio_device);
+        fprintf(stderr, "[-] Could not open %s.\n", audio_device);
         return 1;
     }
-    printf("[+] Successfully opened, %s.\n", audio_device);
+    printf("[+] Successfully opened %s.\n", audio_device);
 
     rformat = format;
     if (ioctl(audio_fd, SNDCTL_DSP_SETFMT, &format) == -1) {
