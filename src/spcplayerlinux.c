@@ -1,6 +1,7 @@
-/*Stephen B Melvin Jr, <stephenbmelvin@gmail.com>
-Version 0.2
-*/
+/* Stephen B Melvin Jr, <stephenbmelvin@gmail.com>
+ * Copyright (C) 2003
+ * Version 0.2
+ */
 
 #ifdef __linux__
 #include <stdio.h>
@@ -29,7 +30,7 @@ off_t size;
 
 if((argc<2))
 {
-printf("\n[?] Usage: soap [sound device] SPC_FILE_NAME\n[?] Optional parameters are in brackets.\n[?] SOAP Version %s (2003) Steve B Melvin Jr\n\n",ver);
+printf("spcplayer version %s\nusage: spcplayer [sound device] filename.spc\n",ver);
 exit(1);
 }
 
