@@ -10,6 +10,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <sys/soundcard.h>
+#include <sys/ioctl.h>
 #include "openspc.h"
 
 int main(int argc, char *argv[]) {
