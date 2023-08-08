@@ -59,10 +59,12 @@ static int FIRptr,echo_ptr;
 /* Noise stuff */
 int noise_cnt,noise_lev;
 
+#pragma GCC diagnostic ignored "-Warray-bounds"
 static const int *G1=&gauss[256],
                  *G2=&gauss[512],
                  *G3=&gauss[255],
                  *G4=&gauss[-1];	/* Ptrs to Gaussian table */
+#pragma GCC diagnostic warning "-Warray-bounds"
 
 static const int mask=0xFF;
 
