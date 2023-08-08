@@ -1,9 +1,9 @@
 NASM ?= nasm
 CC ?= gcc
 AFLAGS = -f elf32
-CFLAGS = -W -Wall -pedantic -O2 -m32 -ISNEeSe -I.	# -static
+CFLAGS = -W -Wall -pedantic -O2 -m32 -ISNEeSe -Isrc
 SNESEOBJS = SNEeSe/SPC700.o
-SRC = dsp.c  main.c  spcplayerlinux.c SNEeSe/SPCimpl.c
+SRC = src/dsp.c src/main.c src/spcplayerlinux.c SNEeSe/SPCimpl.c
 
 spcplayer: $(SRC) $(SNESEOBJS)
 	gcc $(CFLAGS) -o $@ $(SRC) $(SNESEOBJS) -lz
