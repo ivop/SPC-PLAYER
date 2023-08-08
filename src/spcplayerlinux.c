@@ -67,7 +67,7 @@ int main(int argc, char *argv[]) {
         fprintf(stderr, "[-] Could not set speed.\n");
         return 1;
     }
-    printf("[+] Using speed, {%iHz}\n", speed);
+    printf("[+] Using speed %iHz\n", speed);
 
     buf = malloc(32000);
 
@@ -102,6 +102,6 @@ int main(int argc, char *argv[]) {
         }
     }
 
-    printf("\nGoodbye!\n");
+    printf("Goodbye!\n");
     return 0;
 }
